@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     S3_SECRET_KEY: str = "minioadmin"
     JWT_SECRET: str = "supersecret"
     JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+
 
     class Config:
         env_file = ".env"
