@@ -1,6 +1,8 @@
 import enum
-from sqlalchemy import Column, Integer, String, ForeignKey, Enum, JSON
+
+from sqlalchemy import JSON, Column, Enum, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
 from app.db import Base
 
 
@@ -17,7 +19,9 @@ class File(Base):
     filename = Column(String, nullable=False)
     size = Column(Integer, nullable=False)
     type = Column(String, nullable=False)
-    visibility = Column(Enum(Visibility), default=Visibility.PRIVATE, nullable=False)
+    visibility = Column(
+        Enum(Visibility), default=Visibility.PRIVATE, nullable=False
+    )
 
     owner_id = Column(Integer, ForeignKey("users.id"))
     department_id = Column(Integer, ForeignKey("departments.id"))

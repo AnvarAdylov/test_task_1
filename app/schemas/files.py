@@ -1,10 +1,13 @@
+from typing import Any, Literal, Optional
+
 from pydantic import BaseModel
-from typing import Optional, Literal, Any
 
 Visibility = Literal["PRIVATE", "DEPARTMENT", "PUBLIC"]
 
+
 class FileCreate(BaseModel):
     visibility: Visibility
+
 
 class FileRead(BaseModel):
     id: int
@@ -16,5 +19,6 @@ class FileRead(BaseModel):
     size: int
     mime_type: str
     download_count: int
+
     class Config:
         from_attributes = True
