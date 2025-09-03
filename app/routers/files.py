@@ -1,8 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+from app.database import get_db
+from app import models
 
-router = APIRouter()
-
+router = APIRouter(prefix="/files", tags=["Files"])
 
 @router.get("/")
-async def list_files():
-    return [{"id": 1, "filename": "example.pdf"}]
+def list_files(db: Session = Depends(get_db)):
+    return db.query(models.File).all()

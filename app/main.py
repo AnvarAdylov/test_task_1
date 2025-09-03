@@ -1,12 +1,13 @@
 from fastapi import FastAPI
-from app.routers import auth, files, users
+from app.routers import auth, files, users, departments
 
 app = FastAPI()
 
 
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
-app.include_router(users.router, prefix="/users", tags=["Users"])
-app.include_router(files.router, prefix="/files", tags=["Files"])
+app.include_router(users.router)
+app.include_router(departments.router)
+app.include_router(files.router)
 
 
 @app.get("/")
