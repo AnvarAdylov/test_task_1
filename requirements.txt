@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 psycopg2-binary
+asyncpg
 alembic
 python-dotenv
 python-multipart
@@ -10,3 +11,6 @@ passlib[bcrypt]
 celery[redis]
 boto3
 minio
+redis
+pydantic
+pydantic-settings
