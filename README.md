@@ -15,14 +15,14 @@ It includes authentication, role-based access control, and CRUD operations.
 - JWT authentication
 
 ### Installation
-
+```
 git clone https://github.com/AnvarAdylov/test_task_1.git
 cd project
 python -m venv venv
 source venv/bin/activate  # Linux / Mac
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
-
+```
 Running
 uvicorn app.main:app --reload
 
@@ -52,13 +52,14 @@ Access API docs: http://127.0.0.1:8000/docs
 JWT-аутентификация
 
 ### Установка
+```
 git clone https://github.com/AnvarAdylov/test_task_1.git
 cd project
 python -m venv venv
 source venv/bin/activate  # Linux / Mac
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
-
+```
 Запуск
 uvicorn app.main:app --reload
 
