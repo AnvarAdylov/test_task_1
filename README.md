@@ -5,6 +5,7 @@
 ### Description
 This project is a FastAPI backend for managing users, departments, and files.  
 It includes authentication, role-based access control, and CRUD operations.
+The API is documented with Swagger/OpenAPI. All endpoints have docstrings.
 
 ### Features
 - User management (CRUD, role-based access)
@@ -14,19 +15,13 @@ It includes authentication, role-based access control, and CRUD operations.
 - Async SQLAlchemy
 - JWT authentication
 
-### Installation
-```
-git clone https://github.com/AnvarAdylov/test_task_1.git
-cd project
-python -m venv venv
-source venv/bin/activate  # Linux / Mac
-venv\Scripts\activate     # Windows
-pip install -r requirements.txt
-```
-Running
-uvicorn app.main:app --reload
+### Quick Start
+Build and run the project with Docker:
 
-Usage
+```
+docker compose up --build
+```
+### Usage
 
 Access API docs: http://127.0.0.1:8000/docs
 
@@ -36,6 +31,7 @@ Access API docs: http://127.0.0.1:8000/docs
 
 Этот проект — бэкенд на FastAPI для управления пользователями, отделами и файлами.
 Включает аутентификацию, контроль доступа на основе ролей и операции CRUD.
+Документация API предоставлена через Swagger/OpenAPI. Все эндпоинты снабжены docstring.
 
 ### Возможности
 
@@ -51,18 +47,11 @@ Access API docs: http://127.0.0.1:8000/docs
 
 JWT-аутентификация
 
-### Установка
+### Быстрый запуск
 ```
-git clone https://github.com/AnvarAdylov/test_task_1.git
-cd project
-python -m venv venv
-source venv/bin/activate  # Linux / Mac
-venv\Scripts\activate     # Windows
-pip install -r requirements.txt
+docker compose up --build
 ```
-Запуск
-uvicorn app.main:app --reload
 
-Использование
+### Использование
 
 Доступ к документации API: http://127.0.0.1:8000/docs
