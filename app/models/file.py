@@ -18,7 +18,7 @@ class File(Base):
     id = Column(Integer, primary_key=True, index=True)
     filename = Column(String, nullable=False)
     size = Column(Integer, nullable=False)
-    mime_type = Column(String, nullable=False)  # ✅ matches schema
+    mime_type = Column(String, nullable=False)
     visibility = Column(
         Enum(Visibility), default=Visibility.PRIVATE, nullable=False
     )
@@ -28,9 +28,8 @@ class File(Base):
         Integer, ForeignKey("departments.id"), nullable=True
     )
 
-    meta = Column(JSON, nullable=True)  # ✅ matches schema
+    meta = Column(JSON, nullable=True)
     download_count = Column(Integer, default=0)
 
-    # 🔗 Relationships
     owner = relationship("User", back_populates="files")
     department = relationship("Department", back_populates="files")

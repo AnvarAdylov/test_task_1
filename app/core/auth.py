@@ -1,3 +1,4 @@
+import enum
 from typing import Annotated, Callable, Literal
 
 from fastapi import Depends, HTTPException, status
@@ -40,11 +41,17 @@ async def get_current_user(
 Role = Literal["USER", "MANAGER", "ADMIN"]
 
 
-def require_roles(*allowed: Role) -> Callable:
+def require_roles(*allowed: str) -> Callable:
     async def _checker(
         current: Annotated[User, Depends(get_current_user)],
     ) -> User:
-        if current.role not in allowed:
+        user_role = (
+            current.role.value
+            if isinstance(current.role, enum.Enum)
+            else str(current.role)
+        )
+
+        if user_role not in allowed:
             raise HTTPException(status_code=403, detail="Forbidden")
         return current
 

@@ -1,5 +1,3 @@
-# app/middleware.py
-
 import logging
 import time
 

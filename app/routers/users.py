@@ -54,8 +54,7 @@ async def get_user(
     user = res.scalar_one_or_none()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-
-    if current.role in ("ADMIN", "MANAGER") or current.id == user_id:
+    if current.role.name in ("ADMIN", "MANAGER") or current.id == user_id:
         return user
     raise HTTPException(status_code=403, detail="Forbidden")
 

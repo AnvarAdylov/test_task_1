@@ -6,10 +6,10 @@ from app.routers import auth, departments, files, users
 
 app = FastAPI(title="File Management API")
 
-# 🔹 Middleware (logging + error handling)
+
 init_middleware(app)
 
-# 🔹 CORS (adjust origins for frontend if needed)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # 👉 change later to ["http://localhost:3000"] etc.
@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 🔹 Routers
+
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(users.router)
 app.include_router(departments.router)

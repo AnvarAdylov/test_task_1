@@ -24,6 +24,5 @@ class User(Base):
         Integer, ForeignKey("departments.id"), nullable=True
     )
 
-    # 🔗 Relationships
     department = relationship("Department", back_populates="users")
     files = relationship("File", back_populates="owner")
