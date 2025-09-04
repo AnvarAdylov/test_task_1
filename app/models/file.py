@@ -18,16 +18,19 @@ class File(Base):
     id = Column(Integer, primary_key=True, index=True)
     filename = Column(String, nullable=False)
     size = Column(Integer, nullable=False)
-    type = Column(String, nullable=False)
+    mime_type = Column(String, nullable=False)  # ✅ matches schema
     visibility = Column(
         Enum(Visibility), default=Visibility.PRIVATE, nullable=False
     )
 
-    owner_id = Column(Integer, ForeignKey("users.id"))
-    department_id = Column(Integer, ForeignKey("departments.id"))
+    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    department_id = Column(
+        Integer, ForeignKey("departments.id"), nullable=True
+    )
 
-    file_metadata = Column(JSON, nullable=True)
+    meta = Column(JSON, nullable=True)  # ✅ matches schema
     download_count = Column(Integer, default=0)
 
+    # 🔗 Relationships
     owner = relationship("User", back_populates="files")
-    department = relationship("Department")
+    department = relationship("Department", back_populates="files")

@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv/
+venv/
+env/
+ENV/
+*.sqlite3
+
+# Logs
+*.log
+logs/
+*.log.*
+/*.log
+
+# Pycharm/IDE
+.idea/
+.vscode/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# Docker
+*.env
+docker-compose.override.yml
+docker-compose.override.*.yml
+
+# Alembic / Migrations
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+__pycache__/
+
+# Test / Coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+*.cover
+coverage.xml
+nosetests.xml
+pytestdebug.log
+
+# MinIO / local storage
+uploads/
+data/
+minio_data/
+
+# Misc
+*.bak
+*.swp
+.DS_Store
+*.tmp

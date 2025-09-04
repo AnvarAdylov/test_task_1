@@ -11,3 +11,11 @@ class DepartmentRead(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class DepartmentAssignUser(BaseModel):
+    user_id: int
+
+
+class DepartmentRemoveUser(BaseModel):
+    user_id: int

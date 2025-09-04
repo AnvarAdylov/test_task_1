@@ -1,14 +1,14 @@
-from typing import Literal, Optional
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
-Role = Literal["USER", "MANAGER", "ADMIN"]
+from app.models.user import Role
 
 
 class UserCreate(BaseModel):
     username: str = Field(min_length=3, max_length=64)
     password: str = Field(min_length=6)
-    role: Role = "USER"
+    role: Role = Role.USER
     department_id: Optional[int] = None
 
 
@@ -20,6 +20,13 @@ class UserRead(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class UserUpdate(BaseModel):
+    username: Optional[str] = Field(None, min_length=3, max_length=64)
+    password: Optional[str] = Field(None, min_length=6)
+    role: Optional[Role] = None
+    department_id: Optional[int] = None
 
 
 class UserUpdateRole(BaseModel):
